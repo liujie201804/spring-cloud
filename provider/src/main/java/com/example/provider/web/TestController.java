@@ -1,7 +1,7 @@
 package com.example.provider.web;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author: jieliu
@@ -12,4 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("test")
 @RestController
 public class TestController {
+
+    @PostMapping(value = "add", produces = "application/json;charset=UTF-8")
+    public void add(@RequestBody JSONObject jsonpObject) {
+        System.out.println(jsonpObject.toJSONString());
+    }
 }
